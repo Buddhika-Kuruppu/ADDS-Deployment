@@ -1,4 +1,4 @@
-# ADDS-Deployment
+# ADDS-Deployment (Windows Server 2019)
 
 This Repository Contains deployment of Active Directory Domain service in Windows server 2019 using Powershell Scripts with Step by Step guidelines. 
 ## Prerequisites
