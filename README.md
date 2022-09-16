@@ -25,4 +25,4 @@ This Repository Contains deployment of Active Directory Domain service in Window
   
   Change the Dynamic IPs (If any) in to static IP. Can use below PowerShell Command
   
-  New-NetIPAddress` -InterfaceIndex 4 -IPAddress 192.168.1.10 -PrefixLength 24 DefaultGateway 192.168.1.1
+  '''New-NetIPAddress` -InterfaceIndex 4 -IPAddress 192.168.1.10 -PrefixLength 24 DefaultGateway 192.168.1.1'''
