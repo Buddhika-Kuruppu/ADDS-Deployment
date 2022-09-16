@@ -21,8 +21,19 @@ This Repository Contains deployment of Active Directory Domain service in Window
  
  ## Steps
  
-  1. IP Configuration
+ ### 1. IP Configuration
   
-  Change the Dynamic IPs (If any) in to static IP. Can use below PowerShell Command
+        Change the Dynamic IPs (If any) in to static IP. Can use below PowerShell Command
   
-  ```New-NetIPAddress` -InterfaceIndex 4 -IPAddress 192.168.1.10 -PrefixLength 24 DefaultGateway 192.168.1.1```
+        ```New-NetIPAddress` -InterfaceIndex 4 -IPAddress 192.168.1.10 -PrefixLength 24 DefaultGateway 192.168.1.1```
+ ### 2. Configuration of DNS 
+ 	Need to setup preferred DNS as private DNS in here.
+	
+ 	```Set-DnsClientServerAddress -InterfaceIndex 4 -ServerAddresses ("192.168.1.100","8.8.8.8")```
+### 3. Installation of ADDS Role
+	Use ```Get-Windowsfeature``` command to retrieve exact feature name and below command to install windows ADDS feature.
+	
+	```Install-windowsfeature AD-domain-services```
+	
+	After installation need to import ADDSDeployment module using ```Import-Module ADDSDeployment``` to proceed with ADDS installation and configuration
+	
