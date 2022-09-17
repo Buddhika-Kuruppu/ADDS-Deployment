@@ -1,5 +1,3 @@
-Install-WindowsFeature –Name AD-Domain-Services –IncludeManagementTools
-
 Install-ADDSForest `
  
   -DomainName "example.com" `
@@ -24,10 +22,5 @@ Install-ADDSForest `
  
   -Force:$true
 
-  #Confirm Installation
 
-  Get-Service adws,kdc,netlogon,dns
-
-  Get-ADDomainController
-  Get-ADDomain basicadds.com
-  Get-smbshare SYSVOL
+  
