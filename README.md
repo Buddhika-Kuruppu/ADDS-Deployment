@@ -6,13 +6,13 @@ This Repository Contains deployment of Active Directory Domain service in Window
  - [ ] Active Directory Architecture
  - [ ] Open Ports Necessary for ADDS to function
 		 
-|               Port |Type                          |Description                       |
-|----------------|-------------------------------|-----------------------------|
-|135|TCP/UDP       |RPC endpoint mapper         |
-|   137       |TCP/UDP           |NetBIOS name service            |
-|138         |UDP|NetBIOS datagram service|
-|139	|TCP|NetBIOS session service|
-|445|TCP/UDP|SMB over IP (Microsoft-DS)|
+	|               Port |Type                          |Description                       |
+	|----------------|-------------------------------|-----------------------------|
+	|135|TCP/UDP       |RPC endpoint mapper         |
+	|   137       |TCP/UDP           |NetBIOS name service            |
+	|138         |UDP|NetBIOS datagram service|
+	|139	|TCP|NetBIOS session service|
+	|445|TCP/UDP|SMB over IP (Microsoft-DS)|
 
 
  - [ ] Configure Static IP to Domain Controller
