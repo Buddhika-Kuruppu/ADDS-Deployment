@@ -42,6 +42,32 @@ This Repository Contains deployment of Active Directory Domain service in Window
 	
    After installation need to import ADDSDeployment module using ```Import-Module ADDSDeployment``` to proceed with ADDS installation and configuration
    
+   Then below are set of commands to configure ADDS.
+   
+   ```Install-ADDSForest `
+ 
+   	-DomainName "customerdomain.com" `
+ 
+  	-CreateDnsDelegation:$false ` 
+ 
+  	-DatabasePath "C:\Windows\NTDS" ` 
+ 
+  	-DomainMode "7" ` 
+ 
+  	-DomainNetbiosName "example" ` 
+ 
+  	-ForestMode "7" ` 
+ 
+  	-InstallDns:$true ` 
+ 
+  	-LogPath "C:\Windows\NTDS" ` 
+ 
+  	-NoRebootOnCompletion:$True ` 
+ 
+  	-SysvolPath "C:\Windows\SYSVOL" ` 
+ 
+  	-Force:$true
+   
 ### 4. Adding Safe-Mode Password (DSRM)
 
   After excecuting installation commands request for Safe Mode Administrator Password will pop-up. So Enter Directory Services Restore Mode (DSRM)  password
