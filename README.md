@@ -9,8 +9,11 @@ This Repository Contains deployment of Active Directory Domain service in Window
 |               Port |Type                          |Description                       |
 |----------------|-------------------------------|-----------------------------|
 |135|TCP/UDP       |RPC endpoint mapper         |
-|   136       |TCP/UDP           |NetBIOS name service            |
-|137          |UDP|NetBIOS datagram service|
+|   137       |TCP/UDP           |NetBIOS name service            |
+|138         |UDP|NetBIOS datagram service|
+|139	|TCP|NetBIOS session service|
+|445|TCP/UDP|SMB over IP (Microsoft-DS)|
+
 
  - [ ] Configure Static IP to Domain Controller
  - [ ] Install ADDS Role in Server 
@@ -35,7 +38,24 @@ This Repository Contains deployment of Active Directory Domain service in Window
 ### 3. Installation of ADDS Role
    Use Get-Windowsfeature command to retrieve exact feature name and below command to install windows ADDS feature.
 	
-   ```Install-windowsfeature AD-domain-services```
+   ```Install-windowsfeature –Name AD-Domain-Services –IncludeManagementTools```
 	
    After installation need to import ADDSDeployment module using ```Import-Module ADDSDeployment``` to proceed with ADDS installation and configuration
+   
+### 4. Adding Safe-Mode Password (DSRM)
+
+  After excecuting installation commands request for Safe Mode Administrator Password will pop-up. So Enter Directory Services Restore Mode (DSRM)  password
+### 5. Reboot the Server and confirm Services
+
+   ```Get-Service adws,kdc,netlogon,dns```
+   
+### 6. Below are some validation commands.
+
+|Command|Description  |
+|---------------|--|
+|```Get-ADDomainController```              |  List details of Domain Controller|
+|```Get-ADDomain customerdomain.com```		| List Details about active Directory Domain |
+|```Get-ADForest customerdomain.com``` | List details on AD Foress|
+|```Get-smbshare SYSVOL``` | Show Domain controller sharing SYSVOL volume |
+
 	
