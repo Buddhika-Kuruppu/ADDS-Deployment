@@ -44,29 +44,29 @@ This Repository Contains deployment of Active Directory Domain service in Window
    
    Then below are set of commands to configure ADDS.
    
-   ```Install-ADDSForest `
+    Install-ADDSForest `
+  
+		-DomainName "customerdomain.com" `
  
-   	-DomainName "customerdomain.com" `
+		-CreateDnsDelegation:$false ` 
  
-  	-CreateDnsDelegation:$false ` 
+	  	-DatabasePath "C:\Windows\NTDS" ` 
  
-  	-DatabasePath "C:\Windows\NTDS" ` 
+	  	-DomainMode "7" ` 
  
-  	-DomainMode "7" ` 
+	  	-DomainNetbiosName "example" ` 
  
-  	-DomainNetbiosName "example" ` 
+	  	-ForestMode "7" ` 
  
-  	-ForestMode "7" ` 
+	  	-InstallDns:$true ` 
  
-  	-InstallDns:$true ` 
+	  	-LogPath "C:\Windows\NTDS" ` 
  
-  	-LogPath "C:\Windows\NTDS" ` 
+	  	-NoRebootOnCompletion:$True ` 
  
-  	-NoRebootOnCompletion:$True ` 
+	  	-SysvolPath "C:\Windows\SYSVOL" ` 
  
-  	-SysvolPath "C:\Windows\SYSVOL" ` 
- 
-  	-Force:$true
+	  	-Force:$true
    
 ### 4. Adding Safe-Mode Password (DSRM)
 
