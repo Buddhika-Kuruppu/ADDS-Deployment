@@ -6,13 +6,13 @@ This Repository Contains deployment of Active Directory Domain service in Window
  - [ ] Active Directory Architecture
  - [ ] Open Ports Necessary for ADDS to function
 		 
-|               Port |Type                          |Description                       |
-|----------------|-------------------------------|-----------------------------|
-|135|TCP/UDP       |RPC endpoint mapper         |
-|   137       |TCP/UDP           |NetBIOS name service            |
-|138         |UDP|NetBIOS datagram service|
-|139	|TCP|NetBIOS session service|
-|445|TCP/UDP|SMB over IP (Microsoft-DS)|
+	|               Port |Type                          |Description                       |
+	|----------------|-------------------------------|-----------------------------|
+	|135|TCP/UDP       |RPC endpoint mapper         |
+	|   137       |TCP/UDP           |NetBIOS name service            |
+	|138         |UDP|NetBIOS datagram service|
+	|139	|TCP|NetBIOS session service|
+	|445|TCP/UDP|SMB over IP (Microsoft-DS)|
 
 
  - [ ] Configure Static IP to Domain Controller
@@ -41,6 +41,32 @@ This Repository Contains deployment of Active Directory Domain service in Window
    ```Install-windowsfeature –Name AD-Domain-Services –IncludeManagementTools```
 	
    After installation need to import ADDSDeployment module using ```Import-Module ADDSDeployment``` to proceed with ADDS installation and configuration
+   
+   Then below are set of commands to configure ADDS.
+   
+    Install-ADDSForest `
+  
+		-DomainName "customerdomain.com" `
+ 
+		-CreateDnsDelegation:$false ` 
+ 
+	  	-DatabasePath "C:\Windows\NTDS" ` 
+ 
+	  	-DomainMode "7" ` 
+ 
+	  	-DomainNetbiosName "example" ` 
+ 
+	  	-ForestMode "7" ` 
+ 
+	  	-InstallDns:$true ` 
+ 
+	  	-LogPath "C:\Windows\NTDS" ` 
+ 
+	  	-NoRebootOnCompletion:$True ` 
+ 
+	  	-SysvolPath "C:\Windows\SYSVOL" ` 
+ 
+	  	-Force:$true
    
 ### 4. Adding Safe-Mode Password (DSRM)
 
