@@ -9,8 +9,11 @@ This Repository Contains deployment of Active Directory Domain service in Window
 |               Port |Type                          |Description                       |
 |----------------|-------------------------------|-----------------------------|
 |135|TCP/UDP       |RPC endpoint mapper         |
-|   136       |TCP/UDP           |NetBIOS name service            |
-|137          |UDP|NetBIOS datagram service|
+|   137       |TCP/UDP           |NetBIOS name service            |
+|138         |UDP|NetBIOS datagram service|
+|139	|TCP|NetBIOS session service|
+|445|TCP/UDP|SMB over IP (Microsoft-DS)|
+
 
  - [ ] Configure Static IP to Domain Controller
  - [ ] Install ADDS Role in Server 
